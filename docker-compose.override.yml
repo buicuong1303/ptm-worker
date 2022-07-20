@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  php_text_message-worker:
+    container_name: php_text_message-worker
+    image: php_text_message-worker
+    build:
+      context: ./ #where Dockerfile to build
+      target: development
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3103:3000
+      - 9303:9229
+    env_file:
+      - .env
+
+    # command: yarn run start
+    # command: yarn run start:dev
+    command: yarn run start:debug

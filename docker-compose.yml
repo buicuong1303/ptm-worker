@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  php_text_message-worker:
+    networks:
+      - php_text_message-network
+
+networks:
+  php_text_message-network:
+    name: php_text_message-network

@@ -1,0 +1,40 @@
+PORT=3000
+
+# Prefix path
+PREFIX_PATH=/worker
+
+# postgres
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=php_text_message
+PG_DATA=/var/lib/postgresql/data
+POSTGRES_HOST=php_text_message-database
+
+# redis-queue
+RDQ_HOST=php_text_message-redis-queue
+RDQ_PASSWD=redis
+RDQ_PORT=6379
+
+# rabbitmq
+RABBITMQ_ERLANG_COOKIE=erlang_cookie_secret
+RABBITMQ_DEFAULT_VHOST=/
+RABBITMQ_DEFAULT_USER=rabbitmq 
+RABBITMQ_DEFAULT_PASS=rabbitmq
+RABBITMQ_HOST=php_text_message-rabbitmq
+RABBITMQ_PORT=5672
+
+# delay push message from worker to backend
+MESSAGE_SCHEDULE_DELAY=2000
+
+# polling every minutes
+POLLING_MESSAGE_TIMEOUT=15
+POLLING_QUEUED_MESSAGE_TIMEOUT=10
+POLLING_MISSED_CALL_TIMEOUT=5
+POLLING_SCHEDULE_MESSAGE_FAIL_TIMEOUT=5
+LONG_POLLING_MESSAGE_CRON="0 1 * * *"
+
+# trigger train sensitive
+# same 4AM US
+TRAIN_INBOUND_SCHEDULE=11
+# same 3AM US
+TRAIN_OUTBOUND_SCHEDULE=10
